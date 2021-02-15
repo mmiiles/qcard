@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QCard - Create user</title>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link href="style/land.css" rel="stylesheet">
+        <link href="style/port.css" rel="stylesheet">
+        <style>::placeholder {color: white;} #ask {margin-left: 0%; margin-right: 0%;} #asksubmit {padding: 0.6%; font-size: 100%;} #twlink:hover {background-color: #1da1f2;}</style>
+        <script src="GET/formcheck.js"></script>
+    </head>
+    <body>
+        <div id="header" style="margin-left: 20%; margin-right: 20%;">
+            <div id="twlink">
+                We are happy to have you on our side, just fill out this basic form and youll have your own page in no time.
+            </div>
+        </div>
+        <br>
+        <div align="center" id="ask">
+            <form action="create.php" enctype="multipart/form-data" method="post" name="post" onsubmit="return formcheck(2)" required>
+                <b>Required:</b>
+                <br><br>
+                <input class="createinputs"  name="name" type="text" placeholder="Your twitter handle (without the @)">
+                <br><br>
+                <input class="createinputs"  name="input" type="text" placeholder="The url to the pfp you want">
+                <br><br>
+                <div id="passwords">
+                    <input class="createinputs"  name="pass1" type="password" placeholder="Choose your password">
+                    <br><br>
+                    <input class="createinputs"  name="pass2" type="password" placeholder="Verify your password">
+                </div>
+                <br><br><br><br>
+                <b>Optional:</b>
+                <br><br>
+                <input class="createinputs"  name="discordname" type="text" placeholder="Your discord tag">
+                <br><br>
+                <input class="createinputs"  name="discord" type="text" placeholder="The link to your discord server">
+                <br><br>
+                <input class="createinputs"  name="instagram" type="text" placeholder="The link to your instagram">
+                <br><br>
+                <input class="createinputs"  name="reddit" type="text" placeholder="The link to your reddit">
+                <br><br>
+                <input class="createinputs"  name="spotify" type="text" placeholder="The link to your spotify">
+                <br><br>
+                <input class="createinputs"  name="steam" type="text" placeholder="The link to your steam profile">
+                <br><br>
+                <button class="inpts" id="asksubmit" type="submit">Sign Up</button>
+            </form>
+        </div>
+    </body>
+</html>
