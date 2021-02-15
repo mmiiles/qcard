@@ -1,4 +1,5 @@
 <?php
+bruh;
 function sanitize($value) {
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
