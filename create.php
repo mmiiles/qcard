@@ -5,15 +5,15 @@ function sanitize($value) {
 $_POST = array_map("sanitize", $_POST);
 
 $owner = $_POST['name'];
-$pfp = $_POST['input'];
-$password = $_POST['pass1'];
-
 if (realpath("user/$owner") !== false && is_dir(realpath("user/$owner"))) {
         header("Location: failed.html");
         exit("User already exists");
 }
 mkdir("user/$owner");
 
+$pfp = $_POST['input'];
+$password = $_POST['pass1'];
+$discordname = $_POST['discordname'];
 $social = array(
         'discord' => $_POST['discord'],
         'instagram' => $_POST['instagram'],
@@ -54,9 +54,9 @@ $logincont = str_replace("newuser", $owner, $logincont);
 $respondcont = str_replace("newuser", $owner, $respondcont);
 $respondcont = str_replace("link-to-pfp", $pfp, $respondcont);
 
-if ($dcordname != '') {
-        $indexcont = str_replace("discord_tag", $dcordname, $indexcont);
-        $respondcont = str_replace("discord_tag", $dcordname, $respondcont);
+if ($discordname != '') {
+        $indexcont = str_replace("discord_tag", $discordname, $indexcont);
+        $respondcont = str_replace("discord_tag", $discordname, $respondcont);
 }
 else {
         $indexcont = str_replace("discord_tag", "", $indexcont);
