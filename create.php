@@ -5,15 +5,15 @@ function sanitize($value) {
 $_POST = array_map("sanitize", $_POST);
 
 $owner = $_POST['name'];
-$pfp = $_POST['input'];
-$password = $_POST['pass1'];
-
 if (realpath("user/$owner") !== false && is_dir(realpath("user/$owner"))) {
         header("Location: failed.html");
         exit("User already exists");
 }
 mkdir("user/$owner");
 
+$pfp = $_POST['input'];
+$password = $_POST['pass1'];
+$discordname = $_POST['discordname'];
 $social = array(
         'discord' => $_POST['discord'],
         'instagram' => $_POST['instagram'],
