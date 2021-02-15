@@ -1,7 +1,8 @@
 <?php
-foreach ($_POST as $i) {
-        $i = htmlspecialchars($i, ENT_QUOTES, 'UTF-8');
+function sanitize($value) {
+        return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
+$post = array_map("sanitize", $post);
 
 $owner = $_POST['name'];
 $pfp = $_POST['input'];

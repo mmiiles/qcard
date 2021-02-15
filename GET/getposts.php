@@ -1,4 +1,8 @@
 <?php
+function sanitize($value) {
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
+
 function postPublic($owner) {
     $conn = new mysqli("localhost", "qcard", "5DC9n4Pcwj", "qcard");
     $sql = "select id from $owner";
@@ -12,6 +16,7 @@ function postPublic($owner) {
             $sql = "select * from $owner where id='$x'";
             $post = $conn->query($sql);
             $post = $post->fetch_assoc();
+            $post = array_map("sanitize", $post);
             $cont = '<div class="post">' . PHP_EOL;
             if ($post['postAuth'] != 'Anonymous' && $post['postAuth'] != "") {
                 $cont .= '<div class="namediv">' . PHP_EOL;
@@ -44,7 +49,7 @@ function postPublic($owner) {
                 $cont .= '</div>' . PHP_EOL;
             }
             $cont .= '</div>';
-            echo htmlspecialchars($cont, ENT_QUOTES, 'UTF-8');
+            echo $cont;
         }
     }
     $conn->close();
@@ -64,6 +69,7 @@ function postPrivate($owner) {
                 $sql = "select * from $owner where id='$x'";
                 $post = $conn->query($sql);
                 $post = $post->fetch_assoc();
+                $post = array_map("sanitize", $post);
                 $cont = '<div class="post">' . PHP_EOL;
                 if ($post['postAuth'] != 'Anonymous' && $post['postAuth'] != "") {
                     $cont .= '<div class="namediv">' . PHP_EOL;
@@ -100,7 +106,7 @@ function postPrivate($owner) {
                     $cont .= '</div>' . PHP_EOL;
                 }
                 $cont .= '</div>';
-                echo htmlspecialchars($cont, ENT_QUOTES, 'UTF-8');
+                echo $cont;
             }
         }
         $conn->close();
