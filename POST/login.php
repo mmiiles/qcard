@@ -1,8 +1,8 @@
 <?php
-asort($_POST);
-foreach ($_POST as $i) {
-        $i = htmlspecialchars($i, ENT_QUOTES, 'UTF-8');
+function sanitize($value) {
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
+$_POST = array_map("sanitize", $_POST);
 
 $owner = $_SERVER['QUERY_STRING'];
 $passinp = $_POST['pass'];
