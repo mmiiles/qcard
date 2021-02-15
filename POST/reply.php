@@ -1,4 +1,9 @@
 <?php
+asort($_POST);
+foreach ($_POST as $i) {
+        $i = htmlspecialchars($i, ENT_QUOTES, 'UTF-8');
+}
+
 date_default_timezone_set("America/Detroit");
 $t = date("Y-m-d h:i:sa") . " EST";
 
