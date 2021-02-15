@@ -1,7 +1,7 @@
 <?php
 function sanitize($value) {
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
-    }
+}
 $post = array_map("sanitize", $post);
 
 date_default_timezone_set("America/Detroit");
