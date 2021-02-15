@@ -1,4 +1,9 @@
 <?php
+asort($_POST);
+foreach ($_POST as $i) {
+        $i = htmlspecialchars($i, ENT_QUOTES, 'UTF-8');
+}
+
 $owner = $_SERVER['QUERY_STRING'];
 $passinp = $_POST['pass'];
 

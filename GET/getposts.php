@@ -44,7 +44,7 @@ function postPublic($owner) {
                 $cont .= '</div>' . PHP_EOL;
             }
             $cont .= '</div>';
-            echo $cont;
+            echo htmlspecialchars($cont, ENT_QUOTES, 'UTF-8');
         }
     }
     $conn->close();
@@ -100,7 +100,7 @@ function postPrivate($owner) {
                     $cont .= '</div>' . PHP_EOL;
                 }
                 $cont .= '</div>';
-                echo $cont;
+                echo htmlspecialchars($cont, ENT_QUOTES, 'UTF-8');
             }
         }
         $conn->close();
