@@ -1,5 +1,4 @@
 <?php
-asort($_POST);
 foreach ($_POST as $i) {
         $i = htmlspecialchars($i, ENT_QUOTES, 'UTF-8');
 }
@@ -14,12 +13,13 @@ if (realpath("user/$owner") !== false && is_dir(realpath("user/$owner"))) {
 }
 mkdir("user/$owner");
 
-$social = new stdClass;
-$social->discord = $_POST['discord'];
-$social->instagram = $_POST['instagram'];
-$social->reddit = $_POST['reddit'];
-$social->spotify = $_POST['spotify'];
-$social->steam = $_POST['steam'];
+$social = array(
+        'discord' => $_POST['discord'],
+        'instagram' => $_POST['instagram'],
+        'reddit' => $_POST['reddit'],
+        'spotify' => $_POST['spotify'],
+        'steam' => $_POST['steam']
+);
 asort($social);
 
 $conn = new mysqli("localhost", "qcard", "5DC9n4Pcwj", "qcard");
